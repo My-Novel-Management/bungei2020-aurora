@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.0.2] - 2020-02-21
+### Changed
+- Readme
+
 ## [0.0.1] - 2020-02-20
 ### Added
 - This CHANGELOG file to hopefully serve as an evolving example of a standardized open source project CHANGELOG.
@@ -13,5 +17,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 <!--Must change link URL-->
 
-[Unreleased]: https://github.com/My-Novel-Management/bungei2020-aurora/compare/v0.0.1...HEAD
+[Unreleased]: https://github.com/My-Novel-Management/bungei2020-aurora/compare/v0.0.2...HEAD
+[0.0.2]: https://github.com/My-Novel-Management/bungei2020-aurora/releases/v0.0.2
 [0.0.1]: https://github.com/My-Novel-Management/bungei2020-aurora/releases/v0.0.1
