@@ -13,10 +13,10 @@ from storybuilder.builder.writer import Writer
 ## assets
 from storybuilder.assets import basic, accessory
 ## local files
-from src.black.main import ch_black
-from src.green.main import ch_green
-from src.pink.main import ch_pink
-from src.red.main import ch_red
+from src.c1_green.main import ch_green
+from src.c2_black.main import ch_black
+from src.c3_red.main import ch_red
+from src.c4_pink.main import ch_pink
 ## settings
 from config import PERSONS, AREAS, STAGES, DAYS, TIMES, ITEMS, WORDS, RUBIS, LAYERS
 
@@ -60,20 +60,20 @@ _ = Writer.getWho()
 def create_world():
     """Create a world.
     """
-    w = World("World")
+    w = World("君のオーロラの色を教えて")
     w.setCommonData()
     w.setAssets(basic.ASSET)
     w.setAssets(accessory.ASSET)
     w.buildDB(PERSONS,
             AREAS, STAGES, DAYS, TIMES, ITEMS, WORDS,
             RUBIS, LAYERS)
-    w.setBaseDate(2020)
-    w.setBaseArea("Tokyo")
+    w.setBaseDate(2018)
+    w.setBaseArea("Finland")
     # set persons
     # set stages
     # set block
     # set outline
-    w.setOutline("＜outline＞")
+    w.setOutline("ゲームプログラマで趣味でＣＧをやっている男性は、小さい頃から不思議と何かに助けられ、命を失わずにいられた。ある日、彼のＣＧを好きと言ってくれる女性が現れ、ネットを通じて心を通い合わせるようになるが")
     return w
 
 def main(): # pragma: no cover
