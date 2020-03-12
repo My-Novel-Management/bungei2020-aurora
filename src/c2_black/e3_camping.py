@@ -17,42 +17,13 @@ _ = W.getWho()
 
 
 ## scenes
-def sc_longdrive(w: World):
-    nocht, asahi = W(w.nocht), W(w.asahi)
-    return w.scene("遠出",
-            nocht.be("車でオーロラを見に出かけている"),
-            nocht.do("フィンランドでは秋から冬にかけてはいつでもオーロラを見られる。ただ白夜がある十一月から二月が一番いい"),
-            _.do("スマートフォンに地図を表示し、時折それを見ては行き先を確認する"),
-            _.do("車にはキャンプ用品を詰んである"),
-            _.do("休憩しながら$asahiとメッセージのやり取りをしている"),
-            _.do("彼女の暮らす国の話を聞いていた"),
-            asahi.voice("今の時期は外気汚染が酷くてね。埃でいっぱいだからみんな防護マスクをせずには外出できない"),
-            nocht.do("聞いていた日本とは全然印象が違っていた"),
-            nocht.talk("日本はもっと綺麗でゴミも落ちてないと聞いている"),
-            asahi.voice("それは一部のレジャーランドだけじゃないかしら",
-                "人間はどこでも、いつの時代でも、ゴミを道端に捨てる人は減らないわ",
-                "だからロボットに掃除をさせることになるのよ"),
-            nocht.talk("じゃあ君の会社が儲かる訳だ"),
-            asahi.voice("儲けているのはうちじゃなくて、納入先よ",
-                "$meたちは研究をしているだけ"),
-            nocht.talk("それでも東京は車が自動で運転しているんだろう？"),
-            asahi.voice("一部地域だけだし、それにタクシーとしてだから"),
-            nocht.talk("それでもすごいさ。こっちじゃ考えられない。まだ五十年前のマニュアル車が現役で走っているんだから"),
-            nocht.do("実際、レンタルできたのもかなり旧式のワゴンだ", "それでも問題ない",
-                "動けばいい、というのが常識だった"),
-            nocht.talk("じゃあドライブはしないのかい？"),
-            asahi.voice("そんなことしてるの、カーレーサーくらいよ。趣味がなければ運転なんて必要ないもの"),
-            nocht.think("ちょっとつまらない世界だと感じた"),
-            camera=w.nocht,
-            area=w.Tampere,
-            stage=w.on_car_int,
-            )
-
 def sc_arrivedcamping(w: World):
     nocht, asahi = W(w.nocht), W(w.asahi)
+    inside, outside = W(w.inside), W(w.outside)
     return w.scene("キャンプ場に到着",
             nocht.come("キャンプ場にやってくる"),
-            _.do("テントを張り始める"),
+            outside.look("キャンプ場の様子"),
+            nocht.do("テントを張り始める"),
             _.do("手慣れたもので、何度もイラストを描いたりする為に一人で出かけてはこうしてキャンプをしていた"),
             _.do("使い古された道具たちを並べる"),
             _.do("キャンプで楽しみにしているのが、普段はほとんど料理をしない$Sが自分で作るキャンプ飯だった"),
@@ -60,6 +31,7 @@ def sc_arrivedcamping(w: World):
                 "これがうまい"),
             _.do("端末で今日の天気予報を確認すると、あまり晴れそうにはなかった"),
             camera=w.nocht,
+            area=w.Rovaniemi,
             stage=w.on_campsite,
             day=w.in_shorttrip, time=w.at_afternoon,
             )
@@ -68,6 +40,8 @@ def sc_asahitalk(w: World):
     nocht, asahi = W(w.nocht), W(w.asahi)
     return w.scene("アサヒと話す",
             w.comment("オーロラ観測では望遠鏡などは使わない。視野が狭くなるし１００キロ先なのであまり意味がない"),
+            w.comment("$nochtの世界ではオーロラは一種類の色しか出さないようになっている。その違和感を抱かせる。$asahiとの会話内で"),
+            w.comment("この世界は社会学の研究用なので、人間の行動に関するもの以外のデータは絞ってある"),
             nocht.be("カメラの準備中"),
             nocht.do("端末にはアサヒとの文字の会話が流れていく"),
             asahi.voice("オーロラは日本でも見られるようだけれど、こっちで観測しようという人は研究者と物好きくらいなものよ"),

@@ -19,8 +19,13 @@ _ = W.getWho()
 ## scenes
 def sc_comewinter(w: World):
     nocht, asahi = W(w.nocht), W(w.asahi)
+    inside, outside = W(w.inside), W(w.outside)
     return w.scene("冬の到来",
+            w.comment("季節が切り替わり、道端には雪のオブジェクトやスキン、テクスチャが溢れている。一気に冬に切り替わっている"),
+            w.comment("フィンランドの初雪は朝９時の積雪が１ｃｍ以上。早いと$Rovaniemiで９月中旬とかに降ることも。基本は十月に入ってから"),
             nocht.be(),
+            outside.look("街を行き交う人の服装も冬服に切り替わり、雪が舞っている"),
+            w.comment("必死に$asahiにメッセージを送るが、虚しさだけが募る"),
             nocht.do("歩いている"),
             _.do("手にはスマホ。それで情報を見ている"),
             _.do("空から雪が落ちてくるのを写真にして彼女に送る"),
@@ -37,8 +42,11 @@ def sc_comewinter(w: World):
 def sc_working(w: World):
     nocht, asahi = W(w.nocht), W(w.asahi)
     mousa, irene = W(w.mousa), W(w.irene)
+    inside, outside = W(w.inside), W(w.outside)
     return w.scene("仕事やるしかない",
             nocht.be("不機嫌に仕事をしている"),
+            inside.look("マスターアップも近くなり、作業が立て込んでいる。誰もが言葉少なに黙々と仕事をしている様",
+                "大量に散らかっている机など"),
             mousa.come(),
             mousa.talk("なんか最近機嫌悪くないか"),
             nocht.talk("食事がまずい所為かもな"),
@@ -49,6 +57,7 @@ def sc_working(w: World):
             nocht.talk("命を大切にって母ちゃんから教わらなかったか？"),
             mousa.talk("何番目の母ちゃんだ？"),
             nocht.think("$mousaは何度も両親が離婚再婚を繰り返していて、五人も母親がいるそうだ"),
+            w.eventPoint("ネット障害", "やや遅かったり、とぎれとぎれだったりと何か変"),
             nocht.talk("それより、どうなってる、ネット対戦の方？"),
             mousa.talk("一応整備できたが……どうもな"),
             nocht.do("二人でローカルネットで対戦してみるが、ぎこちない"),
@@ -61,8 +70,10 @@ def sc_desperation(w: World):
     nocht, asahi = W(w.nocht), W(w.asahi)
     mousa, irene = W(w.mousa), W(w.irene)
     return w.scene("自暴自棄",
+            w.comment("弱音を吐くところ。唯一、じっくりと他の人間と話すところだから、しっかり描写する"),
             nocht.be(),
             irene.be(),
+            w.eventPoint("失恋", "$ireneに相談"),
             nocht.do("珍しく$ireneと飲みにきていた"),
             _.do("既に酔いが回り、ぐでぐでで愚痴る"),
             _.talk("なんで返事してくれないんだよ。こんなにも$meは好意を伝えているのにさ"),
@@ -85,8 +96,15 @@ def sc_desperation(w: World):
 
 def sc_missingher(w: World):
     nocht, asahi = W(w.nocht), W(w.asahi)
+    irene = W(w.irene)
     return w.scene("彼女はもういない",
-            nocht.be("一人で帰っている"),
+            nocht.be("タクシーから降りて一人で帰っている"),
+            w.comment("$ireneに近所まで送ってもらった"),
+            irene.be(),
+            irene.talk("ちゃんと帰りなさいよ。明日は昼からでいいから"),
+            nocht.talk("すみません"),
+            irene.talk("いいのよ。じゃ、おやすみ"),
+            irene.go("タクシーは行ってしまう"),
             nocht.do("泥酔している"),
             _.do("空を見上げれば綺麗な星空"),
             _.think("なぜ答えてくれないんだ"),

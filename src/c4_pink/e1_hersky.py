@@ -20,15 +20,19 @@ _ = W.getWho()
 def sc_herworld(w: World):
     nocht, asahi = W(w.nocht), W(w.asahi)
     yoshi = W(w.yoshi)
+    inside, outside = W(w.inside), W(w.outside)
     return w.scene("彼女の世界",
+            w.comment("いきなり世界観が異なっていることを提示する"),
             asahi.come("オートモービルでオフィスビルにやってくる"),
-            _.do("ビルに入り、受付でチェックを済ませる",
+            outside.look("街は建物ばかりで、走っている車もやや奇妙なもの。自動運転の車ばかり"),
+            asahi.do("ビルに入り、受付でチェックを済ませる",
                 "対応をするのはロボットだ"),
             _.do("エレベータで地下に向かう"),
             _.do("ほとんど他人とすれ違わない",
                 "空気は悪くなり、外でも常時マスクが必要になっていた"),
             _.do("隔壁を抜け、$Sはラボに入っていく"),
             _.do("警備用の監視カメラがずっと追っている"),
+            w.comment("完全監視社会であること。対応はほぼロボットのみ。人間の数が減っている"),
             ## NOTE
             ##  アサヒの世界の事情
             camera=w.asahi,
@@ -40,6 +44,8 @@ def sc_herworld(w: World):
 def sc_simulation(w: World):
     nocht, asahi = W(w.nocht), W(w.asahi)
     return w.scene("シミュレーション",
+            w.comment("$asahiの仕事場、初出なので、しっかり描写するとともに、$nochtとの世界の差を機器類や端末で見せること"),
+            w.comment("量子コンピュータという言葉を出して、それによるシミュレーションでしかないとすぐに分かるようにする"),
             asahi.come("ラボに入ってくる"),
             _.do("そこには端末とモニタが並び、更に隣室へのドアがある"),
             _.explain("最新型の量子コンピュータが隣室を埋めている",
@@ -62,6 +68,7 @@ def sc_notice(w: World):
     nocht, asahi = W(w.nocht), W(w.asahi)
     yoshi = W(w.yoshi)
     return w.scene("気づき",
+            w.comment("$nochtとの出逢い。ここで異変に気づく過程をきっちり描くこと。それがイコール$asahiの感情の芽生えにもなる"),
             asahi.be("研究中"),
             asahi.do("目覚めて、眠気覚ましにとコーヒーを淹れようとする"),
             _.do("その時奇妙な現象を目撃した"),

@@ -20,19 +20,28 @@ _ = W.getWho()
 def sc_programmer(w: World):
     nocht, asahi = W(w.nocht), W(w.asahi)
     mousa, irene, adonis = W(w.mousa), W(w.irene), W(w.adonis)
+    inside, outside = W(w.inside), W(w.outside)
     return w.scene("プログラムな日々",
             nocht.come("会社にやってくる"),
-            nocht.explain("＜会社の様子説明＞"),
-            nocht.do("自分のデスクについて"),
+            nocht.explain("＜会社の様子説明＞",
+                "正規メンバー以外にもデバッグ時には人を増やして全体で二十人くらい。普段は十人前後でやっている"),
+            inside.look("オフィスの見た目。テナントビルの二階のワンフロア"),
+            _.look("オフィスの様子。机やパソコン、ハードディスクの山に、資料のファイル"),
+            nocht.do("自分のデスクにやってきて"),
             mousa.be("隣のデスクででっぷりした黒人が"),
+            mousa.look("$Sの外見。ナイジェリア系のスウェーデン人で、仕事の為に雇われている"),
             mousa.talk("おい$nocht、聞いたぜ、英雄"),
             nocht.talk("ほんと、よくかすり傷で済んだよ"),
+            w.comment("$nochtがよく死にかけていることは周知"),
             irene.come(),
             irene.talk("あのね", "勝手に死なれたらうちは終わるんだからやめて"),
             nocht.explain("プロジェクトリーダーの$irene"),
+            irene.look("金髪の綺麗な美人。いつもしっかりスーツ姿で弁護士みたいと。実際この会社を起こしたのも謎な人物"),
+            w.comment("実は$asahiの性格や容姿を少し受け継いだデータになっている"),
             nocht.talk("分かってるよ",
                 "それよりどうだい？　新しいデザインは"),
             mousa.talk("$adonisが怒ってた。勝手にイメージ変えるなって"),
+            w.comment("$adonisは後で登場。ここでは名前と役割のみ。あと口うるさくて、$nochtと衝突しがちなこと"),
             nocht.talk("気持ち悪い悪魔より、なんか愛嬌あったり、どこか憎めないくらいの方がいいんだって"),
             mousa.talk("できるだけ醜悪じゃないとシナリオ的に困るそうだ。面倒なこった"),
             nocht.talk("美人ならいくらでも描いてやるのに"),
@@ -43,6 +52,7 @@ def sc_programmer(w: World):
             irene.talk("とにかく九月のプレイベントには何とかＰＶ回せるようにね"),
             nocht.talk("了解"),
             nocht.explain("今十一月発売のソフトを懸命に作っていた"),
+            w.comment("今までに作ったソフトを軽く紹介する。パッケージを置いておき、売上とか、内容とか、評価とかをさらっと触れる"),
             ## NOTE
             ##  普段の仕事などの、ノクトの身の回りのことと、ゲームのAIがテーマっぽいとミスリード
             stage=w.on_office_int,
@@ -50,9 +60,16 @@ def sc_programmer(w: World):
 
 def sc_bothdistance(w: World):
     nocht, asahi = W(w.nocht), W(w.asahi)
+    mirei = W(w.mirei)
+    inside, outside = W(w.inside), W(w.outside)
     return w.scene("二人の距離は",
             nocht.be("仕事が終わり、行きつけのカフェバーで夕食中"),
-            _.do("端末を置いて、$asahiとメッセージをやり取りしている"),
+            w.comment("カフェバー初登場、今後もよく登場するのでしっかり描写しておくこと"),
+            inside.look("カフェバーの様子。客席はカウンターとテーブル席で全体で三十程度",
+                "カウンターの裏にはアルコールの色とりどりのボトルが並ぶ棚"),
+            mirei.be("ホール係の赤毛の娘"),
+            mirei.do("注文したプレートを持ってくる"),
+            nocht.do("端末を置いて、$asahiとメッセージをやり取りしている"),
             _.talk("去年出したゲーム（古い洋館をめぐり、バケモノ退治しつつ宝探しをして回る）がそれなりに売れて、今回は飛躍の機会なんだけど"),
             asahi.voice("またバケモノを殺すゲーム？"),
             nocht.talk("人殺しのゲームよりマシだろうって"),

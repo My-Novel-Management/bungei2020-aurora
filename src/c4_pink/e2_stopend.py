@@ -21,6 +21,7 @@ def sc_stop_project(w: World):
     nocht, asahi = W(w.nocht), W(w.asahi)
     yoshi = W(w.yoshi)
     return w.scene("プロジェクト停止",
+            w.comment("会社にくるところから始めて、空の様子を描いておく。ちょっと奇妙だな、と"),
             asahi.be("じっとモニタを見てデータを集めている"),
             _.hear("空調の音"),
             _.do("$nochtに言われたように、自分でノートに絵を描いてみる",
@@ -63,6 +64,7 @@ def sc_stop_del(w: World):
     yoshi = W(w.yoshi)
     god = W(w.god)
     return w.scene("削除の停止を",
+            w.comment("ここでリンクする。$nochtのラストと$asahiのラストが重なり、二人の気持ちも重なる。しかしそれもまた誰かにとっては単なるデータでしかない、という結末"),
             asahi.be(),
             asahi.talk("$nocht？"),
             asahi.do("画面の中で必死に明滅する点があった",

@@ -19,10 +19,17 @@ _ = W.getWho()
 ## scenes
 def sc_nearwinter(w: World):
     nocht, asahi = W(w.nocht), W(w.asahi)
+    inside, outside = W(w.inside), W(w.outside)
+    sky = W(w.sky)
     return w.scene("秋のある日",
             w.comment("秋の町中の空気感を"),
             nocht.be("外を歩いている"),
             _.do("街は徐々に秋めいて、そろそろオーロラが見られるなと思う"),
+            sky.look("秋になりかけた空の映像。雲が流れていく"),
+            outside.look("街を歩く人、車の様子"),
+            w.eventPoint("電子世界", "オブジェクトが似たものが複数ある"),
+            nocht.do("$asahiからのメッセージを受け取る"),
+            _.explain("出会ってから半年ほどになるが、随分とフランクにやり取りするようになっていた"),
             camera=w.nocht,
             area=w.Tampere,
             stage=w.on_street,
@@ -32,10 +39,14 @@ def sc_nearwinter(w: World):
 def sc_getshortvacation(w: World):
     nocht, asahi = W(w.nocht), W(w.asahi)
     mousa, irene, adonis = W(w.mousa), W(w.irene), W(w.adonis)
+    inside, outside = W(w.inside), W(w.outside)
     return w.scene("小さな休暇を得る",
+            w.comment("仕事の進捗具合が分かるように。ここではまだ慌ててる感じじゃないが、それでもずっと作業してきた、という風"),
             nocht.be("会社で仕事をしている"),
+            inside.look("一旦プロトタイプができあがり、資料が山積みで、みんな疲れている風な"),
             irene.come(),
             irene.talk("どう、調子は？"),
+            w.eventPoint("ゲーム制作", "新しいデザインの提案"),
             nocht.talk("これ見て下さいよ"),
             _.do("新しい敵のデザインだ",
                 "今までのおどろおどろしさがなく、愛らしさがある"),
@@ -64,8 +75,13 @@ def sc_getshortvacation(w: World):
 
 def sc_gototrip(w: World):
     nocht, asahi = W(w.nocht), W(w.asahi)
+    mirei = W(w.mirei)
+    inside = W(w.inside)
     return w.scene("旅行に行こう",
             nocht.be("バーにいた"),
+            inside.look("店内の様子"),
+            mirei.do("注文されたプレートとアルコールを持ってくる"),
+            w.eventStart("$asahiにオーロラを見せる"),
             nocht.do("運ばれてきた食事を楽しみつつ、$asahiとメッセージのやり取りをする"),
             nocht.talk("そういえば$asahiはオーロラを見たことがないと言っていたね"),
             asahi.voice("日本で見える場所もあると聞いているけれど、特別それを観測する為に出かけようとは思わないわ",

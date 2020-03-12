@@ -20,12 +20,16 @@ _ = W.getWho()
 def sc_hischildhood(w: World):
     nocht, asahi = W(w.nocht), W(w.asahi)
     return w.scene("小さい頃の話",
+            w.comment("この道中では特に$nochtの小さい頃の話に焦点を当てる。ここで不思議なことが起こっているのだと知らせる"),
+            w.comment("向かう先は$Rovaniemi。バスで１１時間２５分程度"),
             nocht.be("バイクに荷物を積み、走っている"),
+            _.explain("キャンプ用品を積み込んでいるので結構大きな荷物がある"),
             _.do("北部のラップランド地方を目指していた"),
             _.do("オーロラ観測をするならラップランドだ"),
             _.do("$asahiはオーロラをまだ見たことがないという",
                 "そこで是非カメラで収めて彼女にも見せてあげようという心づもりだった"),
             _.do("ただ空模様はよくなく、天気予報も曇りだった"),
+            w.comment("このパートの最後で事故った風に装う"),
             camera=w.nocht,
             stage=w.on_bike,
             day=w.in_shorttrip, time=w.at_midmorning,
@@ -33,11 +37,17 @@ def sc_hischildhood(w: World):
 
 def sc_godisexists(w: World):
     nocht, asahi = W(w.nocht), W(w.asahi)
+    shopper = W(w.shopper)
+    inside, outside = W(w.inside), W(w.outside)
     return w.scene("神はいるか",
+            w.comment("シーンに違和感を抱かせつつ、いきなり休憩シーンに飛ばすこと"),
+            inside.look("ガソリンスタンドの様子を"),
+            shopper.be(),
+            shopper.look("簡単な店員の描写"),
             nocht.be("途中で店に立ち寄り休憩する"),
             _.do("コンビニ付きのガソリンスタンドで休む"),
-            _.do("森が広がる"),
-            _.do("端末を手に、片手にはパンで、$asahiとやり取りをする"),
+            outside.look("森が広がる", "あまり人はいない", "ときどき道路を車が抜けていく"),
+            nocht.do("端末を手に、片手にはパンで、$asahiとやり取りをする"),
             asahi.voice("そういえば以前、死にそうになったことがあると言っていたけど"),
             nocht.talk("ああ、そうだよ",
                 "そして何度も助けられたんだ",
