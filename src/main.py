@@ -60,7 +60,7 @@ _ = Writer.getWho()
 def create_world():
     """Create a world.
     """
-    w = World("君のオーロラの色を教えて")
+    w = World("オーロラの色を教えて")
     w.setCommonData()
     w.setAssets(basic.ASSET)
     w.setAssets(accessory.ASSET)
