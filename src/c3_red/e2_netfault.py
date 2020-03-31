@@ -21,6 +21,7 @@ def sc_overnight(w: World):
     nocht, asahi = W(w.nocht), W(w.asahi)
     mousa, irene, adonis = W(w.mousa), W(w.irene), W(w.adonis)
     return w.scene("泊まり込み",
+            w.symbol("　　　　１６"),
             nocht.be("#この日から最後の追い上げで泊まり込んでの作業が始まった"),
             nocht.do("キーボードに置いた指が泥沼に埋まっているかのように重かった"),
             nocht.talk("あぁ、気持ち悪い"),
@@ -33,7 +34,7 @@ def sc_overnight(w: World):
             _.do("首を傾げて苦笑する", "&"),
             _.think("いつ寝たのか、どうやって家まで辿り着いたのか、そういった記憶が抜け落ちることはたまにあったが、",
                 "会社に出てきた記憶すらはっきりしないのは珍しかった"),
-            _.explain("既に昨日から泊まり込みしても良いように仮眠室がパーテーションで区切って作られている",
+            _.explain("既に昨日から泊まり込みしても良いように仮眠室がパーテイションで区切って作られている",
                 "そこから髪に癖がついた$ireneが出てきて目を合わせると、バツが悪そうにそそくさと部屋を出ていってしまった"),
             mousa.talk("ああいうとこ、女だよな"),
             nocht.talk("そんなこと言うとまた怒られるぞ"),
@@ -99,6 +100,7 @@ def sc_stop_ending(w: World):
     nocht, asahi = W(w.nocht), W(w.asahi)
     mousa, irene, adonis = W(w.mousa), W(w.irene), W(w.adonis)
     return w.scene("エンディングまで届かない",
+            w.symbol("　　　　１７"),
             nocht.be("#ゲームを進めていた"),
             _.explain("ヘッドフォンを掛け直し、一時停止していたゲームを再開する",
                 "会社で寝泊まりするようになって二週間ばかり、ようやくラスボス戦のデバッグに到達していた","&"),

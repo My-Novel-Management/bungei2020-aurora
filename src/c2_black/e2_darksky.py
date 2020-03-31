@@ -22,6 +22,7 @@ def sc_hischildhood(w: World):
     return w.scene("小さい頃の話",
             w.comment("この道中では特に$nochtの小さい頃の話に焦点を当てる。ここで不思議なことが起こっているのだと知らせる"),
             w.comment("向かう先は$Rovaniemi。バスで１１時間２５分程度"),
+            w.symbol("　　　　７"),
             nocht.be("翌朝まだ日が昇って間もない白闇の静寂の中で、$Sはバイクの背に荷物を積み、出発した", "&"),
             _.do("ジョギングをしているトレーニングシャツの男性や新聞配達のバイクとすれ違う",
                 "杖を突いて歩いていく老婦は日課の礼拝に向かうところだろう", "彼女は気づかなかったようだが時々$eruccoの教会で姿を見かける"),
@@ -62,6 +63,7 @@ def sc_godisexists(w: World):
     inside, outside = W(w.inside), W(w.outside)
     return w.scene("神はいるか",
             w.comment("シーンに違和感を抱かせつつ、いきなり休憩シーンに飛ばすこと"),
+            w.symbol("　　　　８"),
             inside.look("黄色い天板にオレンジのライトが光っていた", "&"),
             nocht.be("その縁から滴る雨水を睨めつけて、$Sはバイクに寄り掛かる"),
             shopper.come(),
